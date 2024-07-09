@@ -1,0 +1,17 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>Author</h1>
+        {% for author in authors %}
+            <div>
+                <div>Id: {{ author.id }}</div>
+                <div>Firstname: {{ author.firstname }}</div>
+                <div>Lastname: {{ author.lastname }}</div>
+                <div>Phone: {{ author.phone }}</div>
+                <div>Joined Date: {{ author.joined_date }}</div>
+            </div>
+            <hr>
+        {% endfor %}
+    </body>
+</html>

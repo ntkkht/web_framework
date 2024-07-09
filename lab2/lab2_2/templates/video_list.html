@@ -1,0 +1,29 @@
+<html>
+    <head>
+    <style>
+        table, th, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        thead{
+            background: grey;
+        }
+        th,td{
+            padding: 1rem;
+        }
+    </style>
+    </head>
+    <body>
+        <h1>Video</h1>
+            <table>
+                <thead>
+                    <tr><th>ID</th><th>Title</th><th>Published_date</th></tr>
+                </thead>
+                <tbody>
+                     {% for video in videos %}
+                        <tr><td>{{ video.id }}</td><td>{{ video.title }}</td><td>{{ video.published_date }}</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+    </body>
+</html>
