@@ -1,0 +1,44 @@
+<html>
+    <head>    <style>
+        table, th, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        thead{
+            background: grey;
+        }
+        th,td{
+            padding: 1rem;
+        }
+    </style></head>
+    <body>
+        <form action="/author/" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Submit">
+        </form>
+        <h1>Author list</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Firsname</th>
+                    <th>Lastname</th>
+                    <th>Phone</th>
+                    <th>Type</th>
+                    <th>Joined Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                 {% for author in data %}
+                    <tr>
+                        <td>{{ author.firstname }}</td>
+                        <td>{{ author.lastname }}</td>
+                        <td>{{ author.phone }}</td>
+                        <td>{{ author.type }}</td>
+                        <td>{{ author.joined_date }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>

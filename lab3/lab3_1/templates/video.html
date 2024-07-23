@@ -1,0 +1,42 @@
+<html>
+    <head>    <style>
+        table, th, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        thead{
+            background: grey;
+        }
+        th,td{
+            padding: 1rem;
+        }
+    </style></head>
+    <body>
+        <form action="/video/" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Submit">
+        </form>
+        <h1>Video list</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Demo</th>
+                    <th>Shortdetail</th>
+                    <th>PublishDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                 {% for video in data %}
+                    <tr>
+                        <td>{{ video.title }}</td>
+                        <td>{{ video.demo }}</td>
+                        <td>{{ video.short_detail }}</td>
+                        <td>{{ video.published_date }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>
