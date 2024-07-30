@@ -8,7 +8,6 @@ def handle_video_request(request):
     if request.method == "POST":
         form = VideoForm(request.POST)
         if form.is_valid():
-            
             Video(
                 title=form.data.get('title'), 
                 published_date=datetime.datetime.now(), 

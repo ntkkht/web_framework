@@ -1,0 +1,22 @@
+<!-- show_video.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show Video</title>
+</head>
+<body>
+    <h1>Video Title: {{ video_title }}</h1>
+    <h2>Videos</h2>
+    <ul>
+        {% for video in videos %}
+            <li>
+                <div>title: {{ video.title }}</div>
+                <div>published: {{ video.published_date }}</div>
+                <div>author: {{ video.author.firstname }} {{ video.author.lastname }}</div>
+            </li>
+        {% empty %}
+            <li>No videos found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

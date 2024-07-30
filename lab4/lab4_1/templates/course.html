@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show Video</title>
+</head>
+<body>
+    <h1>CourseId : {{ course_id }}</h1>
+    <h2>Course</h2>
+    {% if course %}
+        <div>Title: {{ course.title }}</div>
+        <div>
+            <div>Video:</div>
+            <ul>
+                {% for video in videos %}
+                    <li>
+                        <div>title: {{ video.title }}</div>
+                        <div>published: {{ video.published_date }}</div>
+                        <div>author: {{ video.author.firstname }} {{ video.author.lastname }}</div>
+                    </li>
+                {% empty %}
+                    <li>No videos found.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% else %}
+        <p>Not found course</p>
+    {% endif %}
+</body>
+</html>
