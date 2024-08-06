@@ -20,7 +20,7 @@ def authorformset(request):
     return render(request, "addauthors.html", {"formset": formset})
 
 def get_author(request):
-    form = AuthorForm(instance=Author.objects.filter(firstname__startswith='A').first())
+    form = AuthorForm(instance=Author.objects.filter(firstname__startswith='A').order_by('firstname').first())
     if request.method == 'POST':
         form = AuthorForm(data=request.POST)
         if form.is_valid():
