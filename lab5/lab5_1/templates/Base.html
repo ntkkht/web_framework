@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}Base{% endblock %}</title>
+</head>
+<body>
+    <h1>Natthakit khonthong</h1>
+    <nav id="sidebar">
+        {% block sidebar %}
+        <ul>
+            <li><a href="/add_author">Add author</a></li>
+            <li><a href="/get_author">Get Author</a></li>
+            <li><a href="/get_author_by_video">Get Author By Video</a></li>
+        </ul>
+        {% endblock %}
+    </nav>
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
