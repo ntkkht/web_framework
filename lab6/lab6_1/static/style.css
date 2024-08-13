@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Kanit';
+    box-sizing: border-box;
+}
+
+.navbar{
+    position: sticky;
+    padding: .5rem 2rem;
+    background-color: rgb(2, 80, 35);
+    box-shadow: 0 2px 1.5rem .1rem #00000082;
+}
+.logo{
+    width: 2rem;
+    height: 2rem;
+}
+.logo img{
+    width: 100%;
+    height: 100%;
+}
+.hero-banner{
+    width: 100%;
+    height: 25rem;
+    position: relative;
+}
+.hero-banner img {
+    width: 100%;
+    height: 100%;
+    filter: brightness(.6);
+}
+.banner-label{
+    position: absolute;
+    width: 100%;
+    padding: 4rem;
+    text-align: center;
+    font-size: 3rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    z-index: 9999;
+    backdrop-filter: blur(4px) ;
+}
+.content{
+    padding: 2rem;
+}
+.book-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    list-style: none;
+    gap: 1rem;
+}
+.book-img{
+    width: 100%;
+    height: 15rem;
+    position: relative;
+    overflow: hidden;
+}
+.book-img img{
+    width: 100%;
+    height: 100%;
+}
+.book-title{
+    text-align: center;
+}
+.book-price{
+    position: absolute;
+    background: rgb(2, 80, 35);
+    color: #fff;
+    right: 2.5%;
+    top: 2.5%;
+    text-align: center;
+    border-radius: 1rem;
+    padding: 0 1rem;
+}
+.button-wrapper{
+    display: flex;
+    justify-content: center;
+}
+.my-button{
+  appearance: none;
+  border: 1px solid rgba(27, 31, 35, .15);
+  border-radius: 6px;
+  background-color: #2e5da4;
+  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  padding: 6px 1.5rem;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  white-space: nowrap;
+}
+.my-button.free{
+    background-color: #2ea44f;
+}
+.my-button.free:hover {
+    background-color: #2c974b;
+}
+.my-button:hover {
+    background-color: #204173;
+}
+

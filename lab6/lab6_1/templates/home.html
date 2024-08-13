@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <ul class="book-list">
+        {% for book in books %}
+            <li>
+                <div class="book-img">
+                    <div class="book-price">
+                        {% if book.saleprice <= 0 %}
+                            Free 
+                        {% else %}
+                            {{ book.saleprice }}$
+                        {% endif %}
+                    </div>
+                    <img src="{% static "" %}{{ book.id }}" alt="book" onerror="this.src = '{% static "" %}book/nobook.jpg'" />
+                </div>
+                <div class="book-title">{{ book.title }}</div>
+                <div class="button-wrapper">
+                    {% if book.saleprice <= 0 %}
+                        <button class="my-button free">Get</button>            
+                    {% else %}
+                        <button class="my-button">Buy</button>
+                    {% endif %}
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

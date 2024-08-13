@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}Book store{% endblock %}</title>
+    <link href="{% static "style.css" %}" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><img src="{% static "logo.png" %}" alt="logo"/></div>
+    </nav>
+    <div class="hero-banner">
+        <div class="banner-label">Book store</div>
+        <img src="{% static "banner.png" %}" alt="banner" alt="banner" />
+    </div>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
