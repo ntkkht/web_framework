@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Video Rest</title>
+</head>
+<script>
+    async function fetchVideo() {
+        const contentEl = document.querySelector("#content");
+        const data = await fetch("http://localhost:8000/apiget/video/")
+            .then((res) => res.json());
+        
+        contentEl.innerHTML = '';  // Clear previous content
+        for(const d of data) {
+            const title = document.createElement("div");
+            title.textContent = `Title: ${d.title}`;
+            const pub = document.createElement("div");
+            pub.textContent = `Published: ${d.published_date}`;
+            contentEl.append(title);
+            contentEl.append(pub);
+        }
+    }
+
+    async function postVideo() {
+        const csrfToken = getCSRFToken();
+        const title = document.querySelector("#title").value;
+        const published_date = document.querySelector("#pub").value;
+        
+        const data = await fetch("http://localhost:8000/apipost/video/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRFToken": csrfToken  // Include CSRF token in the header
+            },
+            body: JSON.stringify({
+                title: title,
+                published_date: published_date
+            })
+        }).then((res) => res.json());
+
+        fetchVideo();  // Refresh the video list after posting
+    }
+
+    function getCSRFToken() {
+        let cookieValue = null;
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.startsWith('csrftoken=')) {
+                cookieValue = cookie.substring('csrftoken='.length);
+                break;
+            }
+        }
+        return cookieValue;
+    }
+</script>
+<body>
+    <button onclick="fetchVideo()">Get Video</button>
+    <div>
+        {% csrf_token %}
+        <div>
+            <label>Title</label>
+            <input placeholder="title" id="title"/>
+        </div>
+        <div>
+            <label>Published Date</label>
+            <input placeholder="published_date" id="pub"/>
+        </div>
+        <div>
+            <button onclick="postVideo()">Post</button>
+        </div>
+    </div>
+    <ul id="content"></ul>
+</body>
+</html>
