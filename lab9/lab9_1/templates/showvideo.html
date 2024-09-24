@@ -1,0 +1,13 @@
+{% extends "validated.html" %}
+{% block rest %}
+<h1>Video list</h1>
+<ul>
+    {% for video in videos %}
+        <li>
+            <div>{{ video.title }} | {{ video.published_date }}</div>
+            <a href="/showauthor/{{video.author_id}}"><div>view author</div></a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock rest %}
+
