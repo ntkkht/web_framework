@@ -1,0 +1,21 @@
+
+{% extends "base.html" %}
+{% block content %}
+<ul>
+                
+    {% for object in object_list %}
+    
+    <li>name: {{ object.name }}</li>
+    <li>age: {{ object.age }}</li>
+    <li>subject: {{ object.subject }}</li>
+    
+    <hr/>
+    
+    {% empty %}
+    
+    <li>No objects yet.</li>
+    
+    {% endfor %}
+    
+</ul>
+{% endblock content %}

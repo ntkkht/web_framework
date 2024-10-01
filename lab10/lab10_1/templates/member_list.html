@@ -1,0 +1,20 @@
+
+{% extends "base.html" %}
+{% block content %}
+<ul>
+
+    {% for member in members %}
+    
+    <li>name: {{ member.name }}</li>
+    <li>age: {{ member.age }}</li>
+    
+    <hr/>
+    
+    {% empty %}
+    
+    <li>No objects yet.</li>
+    
+    {% endfor %}
+    
+</ul>
+{% endblock content %}
